@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-todo-deployment
+  namespace: note-todo-app
+  labels:
+    app: node-todo-app
+    
+ spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-todo-app
+  template:
+    metadata:
+      labels:
+        app: node-todo-app
+    spec: 
+      containers:
+        name: node-todo-app
+        image: amritpanda4u/node-todo:latest
+        ports:
+          - conatinerPorts: 8001
+  
